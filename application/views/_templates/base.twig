@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{ title|default('My PHP MVC Framework') }}</title>
+        <meta name="description" content="">
+        {{ renderBundle('css', 'main')|raw }}
+        {% block styles %}{% endblock %}
+        {{ debugbar('renderHead')|raw }}
+    </head>
+    <body>        
+        {% include '_templates/header.twig' %}        
+        <div class="container">
+            {{ flashMessages()|raw }}
+            {% block content %}{% endblock %}         
+        </div>        
+        {% include '_templates/footer.twig' %}        
+        {{ renderBundle('js', 'main')|raw }}
+        {{ renderBundle('js', 'test')|raw }}
+        {% block scripts %}{% endblock %}
+        {{ debugbar('render')|raw }}        
+    </body>
+</html>

@@ -1,0 +1,13 @@
+{% extends "_templates/base.twig" %}
+{% block content %}
+    
+   <h2>Authentication</h2>
+
+   This is a secure area!<br><br>
+   
+   <h4>Your login details:</h4>
+   <pre>{{ loginDetails }}</pre>
+   
+   <a href="/account/logout">Log out</a>
+   
+{% endblock %}

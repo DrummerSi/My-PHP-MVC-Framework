@@ -1,0 +1,7 @@
+{
+    "require": {
+        "maximebf/debugbar": "1.*",
+        "twig/twig": "1.*",
+        "filp/whoops": "1.*"
+    }
+}

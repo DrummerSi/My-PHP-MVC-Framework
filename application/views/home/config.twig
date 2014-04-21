@@ -1,0 +1,27 @@
+{% extends "_templates/base.twig" %}
+{% block content %}
+    
+   <h2>Config</h2>
+
+    <h3>Database config options</h3>
+    <ul>
+        <li>Host: {{host}}</li>
+        <li>Db: {{db}}</li>
+        <li>Username: {{username}}</li>
+        <li>Password: {{password}}</li>
+    </ul>
+    
+    <h3>Or return an entire array at once <small>And print out individually...</small></h3>
+    <ul>
+        {% for item in db_config %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h3>Or return an entire array at once <small>And print out individually...</small></h3>
+    <ul>
+        {% for name, item in db_array %}
+            <li><b>{{name}}:</b> {{ item }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

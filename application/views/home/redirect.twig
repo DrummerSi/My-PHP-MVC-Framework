@@ -1,0 +1,31 @@
+{% extends "_templates/base.twig" %}
+{% block content %}
+    
+   <h2>Redirect</h2>
+   
+   <form method="post">
+       <input type="submit" value="Post and redirect back to homepage">
+       <input type="hidden" name="type" value="home">
+   </form>
+   <hr>
+   
+   <form method="post">
+       <input type="submit" value="401 error">
+       <input type="hidden" name="type" value="401">
+   </form>
+   <hr>
+   
+   <form method="post">
+       <input type="submit" value="404 error">
+       <input type="hidden" name="type" value="404">
+   </form>
+   <hr>
+   
+   <form method="post">
+       <input type="submit" value="500 error">
+       <input type="hidden" name="type" value="500">
+   </form>
+   <hr>
+   
+
+{% endblock %}

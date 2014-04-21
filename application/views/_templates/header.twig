@@ -1,0 +1,17 @@
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">My PHP Framework (Very simple)</a>
+        </div>
+        <ul class="nav navbar-nav pull-right">
+            {% if isLoggedIn() == true %}
+                <li><a href="/home/auth">Secure area</a></li>
+                <li><a href="/account/logout">Log out</a></li>
+            {% else %}
+                <li><a href="/account/login">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    
+</div>

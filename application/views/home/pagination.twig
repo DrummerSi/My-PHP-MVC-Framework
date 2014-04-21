@@ -1,0 +1,31 @@
+{% extends "_templates/base.twig" %}
+{% block content %}
+    
+   <h2>Pagination</h2>
+   
+   <h3>Test validation</h3>
+   {{ pagination.render|raw }}
+   
+   <h3>Database-backed</h3>
+   <table class="table table-condensed">
+        <thead>
+           <tr>
+               <th>Id</th>
+               <th>Name</th>
+               <th>Number</th>
+           </tr>
+        </thead>
+        <tbody>
+            {% for item in test %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.number}}</td>
+                </tr>
+            {% endfor %}
+       </tbody>
+   </table>
+   {{ paginationDb.render|raw }}
+   
+
+{% endblock %}

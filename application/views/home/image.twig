@@ -1,0 +1,13 @@
+{% extends "_templates/base.twig" %}
+{% block content %}
+    
+   <h2>Image manipulation</h2>
+   
+   {% for item in images %}
+        <h3>{{ item.name }}</h3>
+        <img src="data:image/{{ item.type }};base64,{{ item.image }}">
+        <br /><br />
+   {% endfor %}
+
+{% endblock %}
+        

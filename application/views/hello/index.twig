@@ -1,0 +1,16 @@
+{% extends "_templates/base.twig" %}
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h2>My PHP Framework (Very simple)</h2>
+        </div>
+    </div>
+
+    <h1>Hello there!</h1>
+    <ul>
+        <li>{{ message|raw }}</li>
+        <li>{{ one }}</li>
+        <li>{{ two }}</li>
+        <li>{{ three }}</li>        
+    </ul>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "_templates/base.twig" %}
+{% block content %}
+    
+   <h2>Validation</h2>
+    
+    <form role="form" method="post" class="validate">
+        <div class="form-group">
+            <label for="requiredField">A required item</label>
+            <input type="text" class="form-control" id="requiredField" name="requiredField" placeholder="Enter anything" {{form.requiredField.rules|raw}} value="{{form.requiredField.value}}">
+        </div>
+        
+        <div class="form-group">
+            <label for="emailField">An email</label>
+            <input type="email" class="form-control" id="emailField" name="emailField" placeholder="Enter a valid email" {{form.emailField.rules|raw}} value="{{form.emailField.value}}">
+        </div>
+        
+        <div class="form-group">
+            <label for="numberField">A number</label>
+            <input type="number" class="form-control" id="numberField" name="numberField" placeholder="Enter a number" {{form.numberField.rules|raw}} value="{{form.numberField.value}}">
+        </div>
+        
+        <div class="form-group">
+            <label for="remoteField">Remote field</label>
+            <input type="text" class="form-control" id="remoteField" name="remoteField" placeholder="Enter 'simon'" {{form.remoteField.rules|raw}} value="{{form.remoteField.value}}">
+        </div>
+        
+        <div class="form-group">
+            <label for="numberRangeField">Number range</label>
+            <input type="number" class="form-control" id="numberRangeField" name="numberRangeField" placeholder="Enter a number" {{form.numberRangeField.rules|raw}} value="{{form.numberRangeField.value}}">
+        </div>
+        
+        <div class="form-group">
+            <label for="rangeLengthField">Range length</label>
+            <input type="number" class="form-control" id="rangeLengthField" name="rangeLengthField" placeholder="Enter text between 2 and 6 characters" {{form.rangeLengthField.rules|raw}} value="{{form.rangeLengthField.value}}">
+        </div>
+        
+        <div class="form-group">
+            <label for="dateField">Date</label>
+            <input type="text" class="form-control" id="dateField" name="dateField" placeholder="Enter a date" {{form.dateField.rules|raw}} value="{{form.dateField.value}}">
+        </div>
+        
+        <div class="form-group">
+            <label for="passwordField">Password 1</label>
+            <input type="password" class="form-control" id="passwordField" name="passwordField" placeholder="Enter a password" {{form.passwordField.rules|raw}}>
+        </div>
+        
+        <div class="form-group">
+            <label for="passwordField2">Password 2</label>
+            <input type="password" class="form-control" id="passwordField2" name="passwordField2" placeholder="Enter it again" {{form.passwordField2.rules|raw}}>
+        </div>
+        
+        <div class="form-group">
+            <label for="urlField">URL</label>
+            <input type="text" class="form-control" id="urlField" name="urlField" placeholder="Enter a URL" {{form.urlField.rules|raw}} value="{{form.urlField.value}}">
+        </div>
+        
+        <div class="form-group">
+            <label for="selectField">Select</label>
+            <select class="form-control" id="selectField" name="selectField" {{form.selectField.rules|raw}}>
+                {% for item in selectList %}
+                    <option value="{{ item.value }}" {{ form.selectField.value == item.value ? 'selected' }}>{{ item.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group checkbox">
+            <label>
+                <input type="checkbox" name="agree" id="agree" value="true" {{ form.agree.value == true ? 'checked' }} {{form.agree.rules|raw}}> I agree to the terms
+            </label>
+        </div>
+        
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" {{ form.optionsRadios.value == 'option1' ? 'checked' }} {{form.optionsRadios.rules|raw}}>
+                    Option one is this and that&mdash;be sure to include why it's great
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" {{ form.optionsRadios.value == 'option2' ? 'checked' }} {{form.optionsRadios.rules|raw}}>
+                    Option two can be something else and selecting it will deselect option one
+                </label>
+              </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="textarea">Text area</label>
+            <textarea class="form-control" rows="3" id="textarea" name="textarea" {{form.textarea.rules|raw}}>{{ form.textarea.value }}</textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-default">Submit</button>
+        {{ form.form_token|raw }}
+    </form>
+{% endblock %}

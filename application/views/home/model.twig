@@ -1,0 +1,16 @@
+{% extends "_templates/base.twig" %}
+{% block content %}
+    
+   <h2>Models</h2>
+   
+   <h3>Output from 'helloWorld' function</h3>
+   {{ helloWorld }}
+   
+   <h3>Database results from model</h3>
+   <b>Count: {{ dbCount }}</b> <br />
+   {% for user in db %}
+        {{ user.name }}<br />
+   {% endfor %}
+
+{% endblock %}
+        
