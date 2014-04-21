@@ -28,3 +28,82 @@ Feel free to use this code at your own risk.
 ## Further information
 
 ### Routing
+
+Routing is handled by the framework and allows urls such as:
+  - http://{controller}/{action}/{arg-1}/{arg-2}/{arg-n...}
+  - http://{area}/{controller}/{action}/{arg-1}/{arg-2}/?arg-3=value
+
+An area is defined in the config file of the application and simply allows you to segment sections of the site from each other in to easy to manage segments - Admin, Reports, Clients, etc
+
+{Controller} & {action} are linked to classes, for example:
+
+```php
+Class Home {
+  public function index($one, $two){
+    echo Input::get("arg-3")
+  }
+}
+```
+
+'arg-1' and 'arg-2' querystrings are accessed via the $one & $two variables
+The named 'arg-3' querystring is accessed via the Input classes 'get' method and directly printed out.
+
+
+### Validation
+
+Checking if a form is valid is as easy as calling something like
+
+```php
+  if(isPostBack()){
+     if($validate->passed()){
+      echo("Form validated");
+     } else {
+      echo("Form NOT validated");
+     }
+  }
+
+```
+
+And setting up the rules is as easy as creating an associative array:
+
+```php
+  $validate->rules(array(
+            'requiredField' => array('required' => "true"),
+            'emailField' => array(
+                'required' => 'true',
+                'email' => 'true'
+            ),
+            'numberField' => array(
+                'required' => 'true',
+                'number' => 'true',
+                'minlength' => 2,
+                'maxlength' => 4,
+                'min' => 1,
+                'max' => 20
+            ),
+            'remoteField' => array('remote' => 'http://localhost:81/home/remote_val'), // 'http://localhost:8000/ajax/valtest.php'
+            'numberRangeField' => array('range' => '1,100'),
+            'rangeLengthField' => array('rangelength' => '2,6'),
+            'dateField' => array('date' => 'true'),
+            'passwordField' => array('required' => 'true'),
+            'passwordField2' => array('equalto' => 'passwordField'),
+            'urlField' => array('required' => 'true', 'url' => 'true'),
+            'selectField' => array('required' => 'true'),
+            'agree' => array('required' => 'true'),
+            'optionsRadios' => array('required' => 'true'),
+            'textarea' => array()
+        ));
+
+```
+
+And you can even pass in default values, either hard-coded or from a database:
+
+```php
+  $validate->defaultValues(array(
+            'numberField' => '3',
+            'selectField' => 4,
+            'optionsRadios' => 'option2',
+            'textarea' => 'test<br />A new line'
+        ));
+
+```
