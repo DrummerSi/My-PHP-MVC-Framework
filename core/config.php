@@ -12,8 +12,8 @@ $GLOBALS['config'] = array(
     'database' => array(
         'host' => '127.0.0.1',
         'db' => 'frameworkDb',
-        'username' => 'root',
-        'password' => '1982'
+        'username' => '****',
+        'password' => '****'
     ),
     //List of any routes areas
     'routeAreas' => array(
